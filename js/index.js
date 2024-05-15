@@ -6,18 +6,12 @@ $(function () {
             let data = await weatherData.json()
             let getTemp = data.records.Station[0].WeatherElement.AirTemperature;
             let getWeather = data.records.Station[0].WeatherElement.Weather;
-            let imageUrlSun = "../images/sunny.png";
-            let imageUrlCloud = "../images/clouds.png";
+            let imageUrlSun = "./images/sunny.png";
+            let imageUrlCloud = "./images/clouds.png";
             console.log(data);
             console.log(getTemp);
             document.getElementsByClassName("daliyTemp")[0].innerHTML = "現在溫度" + getTemp + "℃";
 
-            if (getTemp >= 25) {
-                $(".weatherImg").css("background-image", 'url(' + imageUrlSun + ')');
-            }
-            if (getTemp <= 24) {
-                $(".weatherImg").css("background-image", 'url(' + imageUrlCloud + ')');
-            }
             if (getWeather == "晴") {
                 $(".weatherImg").css("background-image", 'url(' + imageUrlSun + ')');
             }
